@@ -7,7 +7,7 @@
     <title>Hek It </title>
 </head>
 <body>
-    <div class="new">
+    <div class="new" style="display: none;">
         <h3>
             <pre>                                                              
                       █            █         █        
@@ -18,8 +18,8 @@
         </h3>
         <br><br>
         <div class="info-taker"> 
-   <input type="text" placeholder="Enter Your name" required >
-   <button>Get started.</button>
+   <input type="text" id="name" placeholder="Enter Your First Name" required >
+   <button id="getStart">Get started.</button>
    </div>
     </div>
     <main class="terminal">
@@ -38,7 +38,12 @@
             <p class="welcome">welcome to HekX</p>
             <p>Type <span style="color: green;">help</span> for all cmds . &lt;/&gt;</p>
         </div>
+        <div class="user-input">
+            <span class="prompt"></span>
+            <input type="text" id="inputFromUser" autocomplete="off" autofocus>
+        </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="main.js"></script>
 </body>
 </html>
