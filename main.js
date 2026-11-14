@@ -18,5 +18,45 @@ if (!localStorage.getItem("old")) {
                document.querySelector(".new").style.display = "none";
                window.location.reload();
           }
-        });z
+        });
 document.querySelector(".prompt").textContent = `${localStorage.getItem("Name")}@hekX:~$`;
+
+const output = document.getElementById("terminal-editor");
+const input = document.getElementById("inputFromUser");
+
+const backChat = [];
+let backChatIndex = -1;
+
+function print(text , className = ""){
+  const line = document.createElement("p");
+  line.className = `output-line ${className}`;
+  line.textContent = text;
+  output.appendChild(line);
+  window.scrollTo(0, document.body.scrollHeight);
+}
+
+function userCommand(command){
+  const parts = command.trim().split(/\s+/);
+  const cmd = (parts[0] || "").toLowerCase();
+  print(`${localStorage.getItem("Name")}@hekX:~$`);
+  if(cmd === "ay"){
+    print("hello");
+  }
+}
+
+
+
+input.addEventListener("keydown", (Event) => {
+  if(Event.key === "Enter"){
+    const command = input.value.trim();
+    if(command){
+      backChat.push(command);
+      backChatIndex = backChat.length;
+      userCommand(command);
+    }
+    input.value = "";
+  }
+})
+
+document.addEventListener("click" , ()=> input.focus());
+input.focus();
