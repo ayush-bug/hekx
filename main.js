@@ -35,6 +35,18 @@ function print(text , className = ""){
   window.scrollTo(0, document.body.scrollHeight);
 }
 
+ async function type(text, className="", speed = 20){
+  const line = document.createElement("p");
+  line.className = `output-line ${className}`;
+  line.textContent = "";
+  output.appendChild(line);
+  for(let i = 0;i<text.length ;  i++){
+    line.textContent += text[i];
+    await new Promise(resolve => setTimeout(resolve,speed));
+  }
+  window.scrollTo(0,document.body.scrollHeight); 
+ }
+
 function userCommand(command){
   const parts = command.trim().split(/\s+/);
   const cmd = (parts[0] || "").toLowerCase();
@@ -49,6 +61,7 @@ print("about - About hekX");
 print("whoami -  about you");
 print("userdata - about your device");
 print("date - current date");
+print("time  -  to get current time");
 print("clear");
 print("darkweb");
 print("hacknasa");
@@ -103,18 +116,58 @@ print("damn");
     print("made with love by Ayush.bug , a professoin bug .")
   }
   else if (cmd === "whoami"){
-    print("You are a user of our hekx and you are the greates hacker of all time , the goat the myth .");
+    type("You are a user of our hekx and you are the greates hacker of all time , the goat the myth .",50);
   }
   else if(cmd == "userdata"){
-    print(navigator.userAgent);
-    print(navigator.platform);
-    print(navigator.language);
-    print(navigator.onLine);
-    print(navigator.connection.effectiveType);
-    print(navigator.connection.downlink);
-    print(navigator.connection.rtt);
-    print( navigator.deviceMemory);
+    print(`
+⠀⠀⠀⠀⠀⠀⠀⣀⣤⣴⣶⣶⣶⣿⣿⣿⣷⣶⣶⣶⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣤⡀⠀⠀⠀⠀
+⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀
+⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀
+⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀
+⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⡏⠉⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠋⠉⠉⣿⣿
+⢻⣿⡇⠀⠀⠀⠈⠙⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠋⠀⠀⠀⠀⢀⣿⡇
+⠘⣿⣷⡀⠀⠀⠀⠀⠀⠀⠉⠛⠿⢿⣿⣿⣿⠿⠛⠋⠀⠀⠀⠀⠀⠀⢀⣼⣿⠃
+⠀⠹⣿⣿⣶⣦⣤⣀⣀⣀⣀⣀⣤⣶⠟⡿⣷⣦⣄⣀⣀⣀⣠⣤⣤⣶⣿⣿⡟⠀
+⠀⠀⣨⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⡇⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀
+⠀⢈⣿⣿⣿⣿⣿⡿⠿⠿⣿⣿⣷⠀⣼⣷⠀⣸⣿⣿⣿⡿⠿⠿⠿⣿⣿⣿⡇⠀
+⠀⠘⣿⣿⣿⡟⠋⠀⠀⠰⣿⣿⣿⣷⣿⣿⣷⣿⣿⣿⣿⡇⠀⠀⠀⣿⣿⠟⠁⠀
+⠀⠀⠈⠉⠀⠈⠁⠀⠀⠘⣿⣿⢿⣿⣿⢻⣿⡏⣻⣿⣿⠃⠀⠀⠀⠈⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⡇⣿⣿⢸⣿⡇⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⡇⣿⣿⢸⣿⡇⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⣿⣿⢸⣿⡇⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⣿⣿⢸⣿⠃⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⡇⣿⣿⢸⣿⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⠇⢿⡿⢸⡿⠀⠿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+      `);
+      print(`
+┌┐  ┐ ┌┬──┐ ┌┬──┐ ┌┬──┐      ┬┬──┐ ┌┬──┐ ┌─┬┬─┐ ┌┬──┐
+├┤  │ └┴─┬┐ ├┼─   ├┼─┬┘      ├┤  │ ├┼──┤   ├┤   ├┼──┤
+└┴──┘ └──┴┘ └┴──┘ └┘ └       ┴┴──┘ └┘  ┘   └┘   └┘  ┘
+        `);
+    print(`User agent   -    ${navigator.userAgent}`);
+    print(`user platfrom   -   ${navigator.platform}`);
+    print(`language   -   ${navigator.language}`);
+    print(`online status   -    ${navigator.onLine}`);
+    print(`Effective type -    ${navigator.connection.effectiveType}`);
+    print(`downlink   -    ${navigator.connection.downlink}`);
+    print(`rrt    -    ${navigator.connection.rtt}`);
+    print(`device ram    -    ${navigator.deviceMemory}gb`);
   }
+  else if(cmd === "date"){
+    print(new Date().toDateString());
+  }
+  else if(cmd === "time"){
+    print(new Date().toLocaleTimeString());
+  }
+  else if(cmd === "clear"){
+     output.innerHTML = "";
+  }
+else if(cmd === "darkweb"){
+
+}
 }
 
 
