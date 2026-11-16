@@ -47,7 +47,7 @@ function print(text , className = ""){
   window.scrollTo(0,document.body.scrollHeight); 
  }
 
-function userCommand(command){
+async function userCommand(command){
   const parts = command.trim().split(/\s+/);
   const cmd = (parts[0] || "").toLowerCase();
   print(`${localStorage.getItem("Name")}@hekX:~$`);
@@ -166,7 +166,12 @@ print("damn");
      output.innerHTML = "";
   }
 else if(cmd === "darkweb"){
-
+await   type("Acessing dark web . . . . . . . . . . . success","",30);
+ await  type("starting new tor server . . . . . . . . . . .  success","",60);
+ await type("hiding your ip and changing per 30s . . . . . . . . . . . success","",70);
+ await type("downloading packages  ./ ./ ./ ./ ./ ./ ./ ./ ./ ./ ./ ./ ./ ./ ./ ./ ./ ./ ./ done.","",100);
+ await type("opening a darkweb window . . . . . . . . . .   opening. . . . . .  ","",150);
+ document.querySelector(".darkweb").style.display = "block";
 }
 }
 
@@ -186,3 +191,7 @@ input.addEventListener("keydown", (Event) => {
 
 document.addEventListener("click" , ()=> input.focus());
 input.focus();
+
+document.getElementById("closedarkweb").addEventListener("click" , function(){
+  document.querySelector(".darkweb").style.display = "none";
+});
