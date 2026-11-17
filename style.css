@@ -122,6 +122,7 @@ body {
 }
 .darkweb .top{
     width: 100%;
+    background-color: aquamarine;
     border-bottom: 1px solid red;
     display: flex;
     justify-content: space-between;
